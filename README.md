@@ -12,3 +12,4 @@ Este sitio web permite visualizar las selecciones participantes del mundial 2026
 Los jugadores pertenecen a una sola seleccion.
 
 ## Diagrama de entidad relación (DER)
+![der](DER.jpg)
