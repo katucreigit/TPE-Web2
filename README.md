@@ -1,8 +1,8 @@
 # Album de figuritas del mundial
 
 ## Integrantes
-* Katrina Creimerman (kcreimerman@alumnos.exa.uniden.edu.ar)
-* Facundo Napp (fnapp@alumnos.exa.uniden.edu.ar)
+* Katrina Creimerman (kcreimerman@alumnos.exa.unicen.edu.ar)
+* Facundo Napp (fnapp@alumnos.exa.unicen.edu.ar)
 
 ## Temática
 Álbum digital de figuritas del mundial presentando selecciones con sus respectivos jugadores.
