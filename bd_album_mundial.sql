@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-04-2026 a las 01:16:55
+-- Tiempo de generación: 27-04-2026 a las 03:56:35
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,6 +39,14 @@ CREATE TABLE `jugador` (
   `foto_jugador` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `jugador`
+--
+
+INSERT INTO `jugador` (`id_jugador`, `nombre`, `posicion`, `numero`, `peso`, `altura`, `fecha_nacimiento`, `id_seleccion`, `foto_jugador`) VALUES
+(1, 'Lionel Messi', 'Delantero', 10, 67, 1.7, '1987-06-24', 1, 'vacio'),
+(2, 'Vinícius Júnior', 'Delantero', 10, 73, 1.76, '2000-07-12', 2, 'vacio');
+
 -- --------------------------------------------------------
 
 --
@@ -49,8 +57,17 @@ CREATE TABLE `seleccion` (
   `id_seleccion` int(11) NOT NULL,
   `cant_mundiales_ganados` int(11) NOT NULL,
   `pais` varchar(40) NOT NULL,
-  `participaciones_totales` int(11) NOT NULL
+  `participaciones_totales` int(11) NOT NULL,
+  `dt_seleccion` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `seleccion`
+--
+
+INSERT INTO `seleccion` (`id_seleccion`, `cant_mundiales_ganados`, `pais`, `participaciones_totales`, `dt_seleccion`) VALUES
+(1, 3, 'Argentina', 18, ''),
+(2, 5, 'Brasil', 22, '');
 
 --
 -- Índices para tablas volcadas
@@ -77,13 +94,13 @@ ALTER TABLE `seleccion`
 -- AUTO_INCREMENT de la tabla `jugador`
 --
 ALTER TABLE `jugador`
-  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `seleccion`
 --
 ALTER TABLE `seleccion`
-  MODIFY `id_seleccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_seleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
