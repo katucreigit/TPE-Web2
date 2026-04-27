@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores de la selección</title>
+</head>
+<body>
+    <h1>Listado de jugadores</h1>
+
+    <table border="3">
+        <thead>
+            <tr>
+                <th>Selección</th>
+                <th>Nombre</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (empty($jugadores)): ?>
+                <tr>
+                    <td colspan="8">No hay jugadores cargados</td>
+                </tr>
+            <?php else: ?>
+
+                <?php foreach ($jugadores as $jugador): ?>
+                    <tr>
+                        <td><?= $jugador->Seleccion ?></td>
+                        <td>
+                            <a href="detalle/<?= $jugador->id_jugador ?>">
+                                <?= $jugador->nombre ?>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+            <?php endif; ?>
+
+        </tbody>
+    </table>
+</body>
+</html>
