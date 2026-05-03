@@ -1,8 +1,9 @@
 <?php
 require_once  'Model/SeleccionModel.php';
 require_once  'View/SeleccionView.php';
+require_once 'Controller/BaseController.php';
 
-class SeleccionController {
+class SeleccionController extends BaseController {
     private $model;
     private $view;
 
@@ -27,13 +28,6 @@ class SeleccionController {
 
         $this->view->showJugadoresdeSeleccion($jugadores);
     }
-    function checkLoggedIn() {
-        session_start();
-
-        if (!isset($_SESSION['USER_ID'])) {
-            header("Location: " . BASE_URL . "login");
-            die();
-        }
-    }
+    
 }
 ?>

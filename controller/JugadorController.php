@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/../model/JugadorModel.php';
 require_once __DIR__ . '/../view/JugadorView.php';
+require_once __DIR__ . '/../controller/BaseController.php';
 
-class JugadorController {
+class JugadorController extends BaseController {
     private $model;
     private $view;
 
@@ -26,15 +27,6 @@ class JugadorController {
         }
 
         $this->view->showJugador($jugador);
-    }
-
-    function checkLoggedIn() {
-        session_start();
-
-        if (!isset($_SESSION['USER_ID'])) {
-            header("Location: " . BASE_URL . "login");
-            die();
-        }
     }
 }
 ?>

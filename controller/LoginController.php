@@ -27,7 +27,7 @@ class LoginController {
             if ($user && password_verify($password, $user->password)) {
                 session_start();
                 $_SESSION['USER_ID'] = $user->id_usuario;
-
+                $_SESSION['LAST_ACTIVITY'] = time();
                 header('Location: ' . BASE_URL . 'listado');
                 die();
             } else {
@@ -37,5 +37,14 @@ class LoginController {
         }
         $this->view->showLogin('Completar los campos');
     }
+
+    function logout() {
+        session_start();
+        session_destroy();
+    
+        header("Location: " . BASE_URL . "login");
+        die();
+    }
+
     
 }
