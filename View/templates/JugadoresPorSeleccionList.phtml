@@ -1,0 +1,53 @@
+
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Lista de Jugadores</title>
+        </head>
+        <body>
+
+        <h1>Lista de Jugadores</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Posición</th>
+                    <th>Número</th>
+                    <th>Peso</th>
+                    <th>Altura</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php if (empty($jugadores)): ?>
+                    <tr>
+                        <td colspan="8">No hay jugadores cargados</td>
+                    </tr>
+                <?php else: ?>
+
+                    <?php foreach ($jugadores as $jugador): ?>
+                        <tr>
+                            <td><?= $jugador->nombre ?></td>
+                            <td><?= $jugador->posicion ?></td>
+                            <td><?= $jugador->numero ?></td>
+                            <td><?= $jugador->peso ?></td>
+                            <td><?= $jugador->altura ?></td>
+                            <td><?= $jugador->fecha_nacimiento ?></td>
+                            <td>
+                                <img src="<?= $jugador->foto_jugador ?>" width="50">
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+
+            </tbody>
+        </table>
+
+        </body>
+        </html>

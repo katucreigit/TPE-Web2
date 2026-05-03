@@ -18,54 +18,58 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_album_mundial`
+-- Base de datos: bd_album_mundial
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `jugador`
+
+-- Estructura de tabla para la tabla jugador
 --
 
-CREATE TABLE `jugador` (
-  `id_jugador` int(11) NOT NULL,
-  `nombre` varchar(60) NOT NULL,
-  `posicion` varchar(20) NOT NULL,
-  `numero` int(11) NOT NULL,
-  `peso` double NOT NULL,
-  `altura` double NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `id_seleccion` int(11) NOT NULL,
-  `foto_jugador` varchar(100) NOT NULL
+CREATE TABLE jugador (
+  id_jugador int(11) NOT NULL,
+  nombre varchar(60) NOT NULL,
+  posicion varchar(20) NOT NULL,
+  numero int(11) NOT NULL,
+  peso double NOT NULL,
+  altura double NOT NULL,
+  fecha_nacimiento date NOT NULL,
+  id_seleccion int(11) NOT NULL,
+  foto_jugador varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `jugador`
+-- Volcado de datos para la tabla jugador
 --
 
-INSERT INTO `jugador` (`id_jugador`, `nombre`, `posicion`, `numero`, `peso`, `altura`, `fecha_nacimiento`, `id_seleccion`, `foto_jugador`) VALUES
+INSERT INTO jugador (id_jugador, nombre, posicion, numero, peso, altura, fecha_nacimiento, id_seleccion, foto_jugador) VALUES
+
 (1, 'Lionel Messi', 'Delantero', 10, 67, 1.7, '1987-06-24', 1, 'vacio'),
 (2, 'Vinícius Júnior', 'Delantero', 10, 73, 1.76, '2000-07-12', 2, 'vacio');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seleccion`
+
+-- Estructura de tabla para la tabla seleccion
 --
 
-CREATE TABLE `seleccion` (
-  `id_seleccion` int(11) NOT NULL,
-  `cant_mundiales_ganados` int(11) NOT NULL,
-  `pais` varchar(40) NOT NULL,
-  `participaciones_totales` int(11) NOT NULL,
-  `dt_seleccion` varchar(30) NOT NULL
+CREATE TABLE seleccion (
+  id_seleccion int(11) NOT NULL,
+  cant_mundiales_ganados int(11) NOT NULL,
+  pais varchar(40) NOT NULL,
+  participaciones_totales int(11) NOT NULL,
+  dt_seleccion varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `seleccion`
+-- Volcado de datos para la tabla seleccion
 --
 
-INSERT INTO `seleccion` (`id_seleccion`, `cant_mundiales_ganados`, `pais`, `participaciones_totales`, `dt_seleccion`) VALUES
+INSERT INTO seleccion (id_seleccion, cant_mundiales_ganados, pais, participaciones_totales, dt_seleccion) VALUES
+>>>>>>> 8391414 (subo mis archivos)
 (1, 3, 'Argentina', 18, ''),
 (2, 5, 'Brasil', 22, '');
 
@@ -74,43 +78,43 @@ INSERT INTO `seleccion` (`id_seleccion`, `cant_mundiales_ganados`, `pais`, `part
 --
 
 --
--- Indices de la tabla `jugador`
+-- Indices de la tabla jugador
 --
-ALTER TABLE `jugador`
-  ADD PRIMARY KEY (`id_jugador`),
-  ADD UNIQUE KEY `id_seleccion` (`id_seleccion`);
+ALTER TABLE jugador
+  ADD PRIMARY KEY (id_jugador),
+  ADD UNIQUE KEY id_seleccion (id_seleccion);
 
 --
--- Indices de la tabla `seleccion`
+-- Indices de la tabla seleccion
 --
-ALTER TABLE `seleccion`
-  ADD PRIMARY KEY (`id_seleccion`);
+ALTER TABLE seleccion
+  ADD PRIMARY KEY (id_seleccion);
 
+--
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `jugador`
---
-ALTER TABLE `jugador`
-  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE jugador
+  MODIFY id_jugador int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `seleccion`
---
-ALTER TABLE `seleccion`
-  MODIFY `id_seleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE seleccion
+  MODIFY id_seleccion int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `jugador`
+
+-- Filtros para la tabla jugador
 --
-ALTER TABLE `jugador`
-  ADD CONSTRAINT `jugador_ibfk_1` FOREIGN KEY (`id_seleccion`) REFERENCES `seleccion` (`id_seleccion`);
+ALTER TABLE jugador
+  ADD CONSTRAINT jugador_ibfk_1 FOREIGN KEY (id_seleccion) REFERENCES seleccion (id_seleccion);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

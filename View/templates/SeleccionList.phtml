@@ -1,0 +1,47 @@
+
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Lista de Selecciones</title>
+        </head>
+        <body>
+
+        <h1>Lista de Selecciones</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>País</th>
+                    <th>DT</th>
+                    <th>Cantidad de Mundiales Ganados</th>
+                    <th>Participaciones Totales</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php if (empty($selecciones)): ?>
+                    <tr>
+                        <td colspan="4">No hay selecciones cargadas</td>
+                    </tr>
+                <?php else: ?>
+
+                    <?php foreach ($selecciones as $seleccion): ?>
+                        <tr>
+                            <td><?= $seleccion->pais ?></td>
+                            <td><?= $seleccion->dt_seleccion ?></td>
+                            <td><?= $seleccion->cant_mundiales_ganados ?></td>
+                            <td><?= $seleccion->participaciones_totales ?></td>
+                            <td><a href="<?= BASE_URL ?>jugadoresPorSeleccion/<?= $seleccion->id_seleccion ?>">
+                            Ver jugadores</td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+
+            </tbody>
+        </table>
+
+        </body>
+        </html>
