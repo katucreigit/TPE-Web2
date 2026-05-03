@@ -69,13 +69,35 @@ CREATE TABLE seleccion (
 --
 
 INSERT INTO seleccion (id_seleccion, cant_mundiales_ganados, pais, participaciones_totales, dt_seleccion) VALUES
->>>>>>> 8391414 (subo mis archivos)
 (1, 3, 'Argentina', 18, ''),
 (2, 5, 'Brasil', 22, '');
 
 --
 -- Índices para tablas volcadas
 --
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `nombre_apellido` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO usuario (username, password, nombre_apellido) VALUES 
+('webadmin', '$2y$10$krd3sXwLOGzYwLXwaeRVa.7iuniB8inoYAAV5Vx76mfDkd8hjgUQu', 'Katu Crei');
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
 
 --
 -- Indices de la tabla jugador
@@ -104,6 +126,17 @@ ALTER TABLE jugador
 
 ALTER TABLE seleccion
   MODIFY id_seleccion int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 --
 -- Restricciones para tablas volcadas

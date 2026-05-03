@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 
 require_once 'controller/JugadorController.php';
 require_once 'Controller/SeleccionController.php';
+require_once 'controller/LoginController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -40,7 +41,17 @@ switch ($params[0]) {
             echo "Falta ID de selección";
         }
         break;
-
+    case 'login':
+        $controller = new LoginController();
+        $controller->showLogin();
+        break;
+    case 'verificar':
+        $controller = new LoginController();
+        $controller->verificar();
+        break;
+    case 'hash':
+        echo password_hash('admin', PASSWORD_DEFAULT);
+        break;
     default:
         echo '404 error';
         break;
