@@ -26,7 +26,7 @@ class LoginController {
 
             if ($user && password_verify($password, $user->password)) {
                 session_start();
-                $_SESSION['USER_ID'] = $user->id_usuario;
+                $_SESSION['usuario'] = $userName;
                 $_SESSION['LAST_ACTIVITY'] = time();
                 header('Location: ' . BASE_URL . 'listado');
                 die();
