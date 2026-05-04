@@ -1,22 +1,27 @@
 <?php
 require_once __DIR__ . '/../model/JugadorModel.php';
 require_once __DIR__ . '/../view/JugadorView.php';
-require_once __DIR__ . '/../controller/BaseController.php';
+require_once __DIR__ . '/../Controller/BaseController.php';
+require_once __DIR__ . '/../Model/SeleccionModel.php';
 
 class JugadorController extends BaseController {
     private $model;
     private $view;
+    private $seleccionModel;
 
     public function __construct() {
         $this->model = new JugadorModel();
         $this->view = new JugadorView();
+        $this->seleccionModel = new SeleccionModel();
     }
 
     public function getAll() {
         $jugadores = $this->model->getAll();
-        $this->view->renderJugador($jugadores);
+        $selecciones = $this->seleccionModel->getAll();
+        $isAdmin = isset($_SESSION['usuario']);
+
+        $this->view->renderJugador($jugadores, $selecciones, $isAdmin);
     }
-    
 
     public function getById($id_jugador) {
         $jugador = $this->model->getById($id_jugador);
@@ -39,8 +44,7 @@ class JugadorController extends BaseController {
             !isset($_POST['altura']) || empty($_POST['altura']) ||
             !isset($_POST['fecha_nacimiento']) || empty($_POST['fecha_nacimiento']) ||
             !isset($_POST['id_seleccion']) || empty($_POST['id_seleccion']) ||
-            !isset($_POST['foto_jugador']) || empty($_POST['foto_jugador']) ||
-        ) {
+            !isset($_POST['foto_jugador']) || empty($_POST['foto_jugador'])) {
             echo 'Error: datos incompletos';
             return;
         }
@@ -54,7 +58,7 @@ class JugadorController extends BaseController {
         $id_seleccion = $_POST['id_seleccion'];
         $foto_jugador = $_POST['foto_jugador'];
 
-        $id = $this->model->add($id_jugador, $nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador);
+        $id_jugador = $this->model->add($nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador);
 
         if (empty($id_jugador)) {
             echo 'Error al insertar';
@@ -83,9 +87,17 @@ class JugadorController extends BaseController {
         exit;
     }
 
+    public function showEditForm($id_jugador) {
+        $this->checkLoggedIn();
+        $jugador = $this->model->getById($id_jugador);
+        $selecciones = $this->seleccionModel->getAll(); // También las necesitamos para editar
+        $this->view->showEditForm($jugador, $selecciones);
+    }
+    
+
     public function delete($id_jugador) {
         $this->checkLoggedIn();
-        
+
         $jugador = $this->model->getById($id_jugador);
 
         if (!$jugador) {

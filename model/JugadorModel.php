@@ -28,15 +28,16 @@
             return $query->fetch(PDO::FETCH_OBJ);
         }
 
-        public function add($id_jugador, $nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador) {
-            $query = $this->db->prepare('INSERT INTO jugador(id_jugador, nombre, posicion, numero, peso, altura, fecha_nacimiento, id_seleccion, foto_jugador) VALUES(?,?,?,?,?,?,?,?,?,?)');
-            $query->execute([$id_jugador, $nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador]);
+        public function add($nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador) {
+            $query = $this->db->prepare('INSERT INTO jugador(nombre, posicion, numero, peso, altura, fecha_nacimiento, id_seleccion, foto_jugador) VALUES(?,?,?,?,?,?,?,?)');
+            $query->execute([$nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador]);
+            
             return $this->db->lastInsertId();
         }
 
         public function edit($id_jugador, $nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador) {
-            $query = $this->db->prepare('UPDATE jugador SET nombre = ?, posicion = ?, numero = ?, peso = ?, altura = ?, fecha_nacimiento = ?, id_seleccion = ?, foto_jugador = ?,  WHERE id_jugador = ?');
-            return $query->execute([$id_jugador, $nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador]);
+            $query = $this->db->prepare('UPDATE jugador SET nombre = ?, posicion = ?, numero = ?, peso = ?, altura = ?, fecha_nacimiento = ?, id_seleccion = ?, foto_jugador = ?  WHERE id_jugador = ?');
+            return $query->execute([$nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador, $id_jugador]);
         }
 
         public function delete($id_jugador) {

@@ -1,0 +1,28 @@
+<form method="POST" action="add">
+    <label for="nombre">Nombre del jugador:</label>
+    <input name="nombre">
+    <label for="posicion">Posición:</label>
+    <input name="posicion">
+    <label for="numero">Número de camiseta:</label>
+    <input name="numero" type="number">
+    <label for="peso">Peso:</label>
+    <input name="peso" type="number">
+    <label for="altura" >Altura:</label>
+    <input name="altura" type="number">
+    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+    <input name="fecha_nacimiento" type="date">
+
+    <select name="id_seleccion" required>
+    <option value="">Seleccione una Selección</option>
+    <?php foreach ($selecciones as $seleccion): ?>
+        <option value="<?= $seleccion->id_seleccion ?>">
+            <?= $seleccion->pais ?>
+        </option>
+    <?php endforeach; ?>
+    </select>
+
+    <label for="foto_jugador">URL de la foto:</label>
+    <input name="foto_jugador">
+
+    <button type="submit">Guardar</button>
+</form>

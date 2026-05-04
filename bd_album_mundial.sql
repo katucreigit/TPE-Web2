@@ -103,8 +103,7 @@ ALTER TABLE `usuario`
 -- Indices de la tabla jugador
 --
 ALTER TABLE jugador
-  ADD PRIMARY KEY (id_jugador),
-  ADD UNIQUE KEY id_seleccion (id_seleccion);
+  ADD PRIMARY KEY (id_jugador);
 
 --
 -- Indices de la tabla seleccion

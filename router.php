@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -56,6 +58,26 @@ switch ($params[0]) {
             $controller = new LoginController();
             $controller->logout();
             break;
+    case 'delete':
+        if (!empty($params[1])) {
+            $controller = new JugadorController();
+            $controller->delete($params[1]);
+        } else {
+            echo "Falta ID";
+        }
+        break;
+    case 'edit':
+        $controller = new JugadorController();
+        $controller->edit();
+        break;
+    case 'formEdit':
+        $controller = new JugadorController();
+        $controller->showEditForm($params[1]);
+        break;
+    case 'add':
+        $controller = new JugadorController();
+        $controller->add();
+        break;
     default:
         echo '404 error';
         break;

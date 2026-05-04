@@ -1,0 +1,24 @@
+<form method="POST" action="<?= BASE_URL ?>edit">
+
+    <input type="hidden" name="id_jugador" value="<?= $jugador->id_jugador ?>">
+
+    <input name="nombre" value="<?= $jugador->nombre ?>">
+    <input name="posicion" value="<?= $jugador->posicion ?>">
+    <input name="numero" value="<?= $jugador->numero ?>">
+    <input name="peso" value="<?= $jugador->peso ?>">
+    <input name="altura" value="<?= $jugador->altura ?>">
+    <input name="fecha_nacimiento" value="<?= $jugador->fecha_nacimiento ?>">
+
+    <select name="id_seleccion" required>
+        <?php foreach ($selecciones as $seleccion): ?>
+            <option value="<?= $seleccion->id_seleccion ?>" 
+                <?= ($seleccion->id_seleccion == $jugador->id_seleccion) ? 'selected' : '' ?>>
+                <?= $seleccion->pais ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <input name="foto_jugador" value="<?= $jugador->foto_jugador ?>">
+
+    <button type="submit">Editar</button>
+</form>
