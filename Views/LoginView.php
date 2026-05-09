@@ -3,6 +3,6 @@
 class LoginView {
 
     function showLogin($error = null) {
-        require_once __DIR__ . '/templates/Login.phtml';
+        require_once DIR . '/templates/Login.phtml';
     }
 }

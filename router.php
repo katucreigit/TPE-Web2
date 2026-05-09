@@ -4,9 +4,9 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'controller/JugadorController.php';
-require_once 'Controller/SeleccionController.php';
-require_once 'controller/LoginController.php';
+require_once 'Controllers/JugadorController.php';
+require_once 'Controllers/SeleccionController.php';
+require_once 'Controllers/LoginController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -62,6 +62,10 @@ switch ($params[0]) {
         } else {
             echo "Falta ID";
         }
+        break;
+    case 'confirmDelete':
+        $controller = new JugadorController();
+        $controller->confirmDelete($params[1]);
         break;
     case 'edit':
         $controller = new JugadorController();

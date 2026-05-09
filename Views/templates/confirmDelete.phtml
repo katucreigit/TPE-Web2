@@ -1,0 +1,17 @@
+<main>
+    <section>
+        <h1>Confirmar eliminación</h1>
+        <p>¿Estás seguro de que querés eliminar al jugador: <?= htmlspecialchars($jugador->nombre)?> ?</p>
+        
+        
+        <p><strong>Aviso:</strong> Esta acción no se puede deshacer.</p>
+
+        <div>
+            <a href="<?= BASE_URL ?>/listado">Cancelar</a>
+
+            <a href="delete/<?= $jugador->id_jugador ?>">
+                Sí, eliminar definitivamente
+            </a>
+        </div>
+    </section>
+</main>

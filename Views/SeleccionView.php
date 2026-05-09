@@ -2,11 +2,11 @@
 
 class SeleccionView {
     public function renderSeleccion($selecciones) {
-        require_once  'View/templates/SeleccionList.phtml';
+        require_once  'Views/templates/SeleccionList.phtml';
     }
 
     public function showJugadoresdeSeleccion($jugadores) {
-        require_once  'View/templates/JugadoresPorSeleccionList.phtml';
+        require_once  'Views/templates/JugadoresPorSeleccionList.phtml';
     }
 }
 

@@ -28,17 +28,18 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla jugador
 --
 
-CREATE TABLE jugador (
-  id_jugador int(11) NOT NULL,
-  nombre varchar(60) NOT NULL,
-  posicion varchar(20) NOT NULL,
-  numero int(11) NOT NULL,
-  peso double NOT NULL,
-  altura double NOT NULL,
-  fecha_nacimiento date NOT NULL,
-  id_seleccion int(11) NOT NULL,
-  foto_jugador varchar(100) NOT NULL
+CREATE TABLE `jugador` (
+  `id_jugador` int(11) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `posicion` varchar(20) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `peso` double NOT NULL,
+  `altura` double NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `id_seleccion` int(11) NOT NULL,
+  `foto_jugador` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Volcado de datos para la tabla jugador
@@ -61,7 +62,8 @@ CREATE TABLE seleccion (
   cant_mundiales_ganados int(11) NOT NULL,
   pais varchar(40) NOT NULL,
   participaciones_totales int(11) NOT NULL,
-  dt_seleccion varchar(30) NOT NULL
+  dt_seleccion varchar(30) NOT NULL,
+  foto_seleccion TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

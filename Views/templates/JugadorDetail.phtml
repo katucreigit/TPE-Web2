@@ -29,6 +29,12 @@
         <th>Fecha nacimiento</th>
         <td><?= $jugador->fecha_nacimiento ?></td>
     </tr>
+    <tr>
+        <th>Foto</th>
+        <td>
+            <img src="<?= $jugador->foto_jugador ?>" alt="Foto de <?= $jugador->nombre ?>" width="150">
+        </td>
+    </tr>
 </table>
 
 <a href="<?= BASE_URL ?>listado">Volver</a>

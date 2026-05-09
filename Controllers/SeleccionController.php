@@ -1,7 +1,7 @@
 <?php
-require_once  'Model/SeleccionModel.php';
-require_once  'View/SeleccionView.php';
-require_once 'Controller/BaseController.php';
+require_once  'Models/SeleccionModel.php';
+require_once  'Views/SeleccionView.php';
+require_once 'Controllers/BaseController.php';
 
 class SeleccionController extends BaseController {
     private $model;
