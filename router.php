@@ -51,9 +51,6 @@ switch ($params[0]) {
         $controller = new LoginController();
         $controller->verificar();
         break;
-    case 'hash':
-        echo password_hash('admin', PASSWORD_DEFAULT);
-        break;
     case 'logout':
             $controller = new LoginController();
             $controller->logout();
@@ -77,6 +74,10 @@ switch ($params[0]) {
     case 'add':
         $controller = new JugadorController();
         $controller->add();
+        break;
+    case 'addSeleccion':
+        $controller = new SeleccionController();
+        $controller->addSeleccion();
         break;
     default:
         echo '404 error';

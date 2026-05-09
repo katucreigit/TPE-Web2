@@ -83,14 +83,14 @@ class JugadorController extends BaseController {
 
         $this->model->edit($id_jugador, $nombre, $posicion, $numero, $peso, $altura, $fecha_nacimiento, $id_seleccion, $foto_jugador);
 
-        header("Location: " . BASE_URL); 
+        header("Location: " . BASE_URL);
         exit;
     }
 
     public function showEditForm($id_jugador) {
         $this->checkLoggedIn();
         $jugador = $this->model->getById($id_jugador);
-        $selecciones = $this->seleccionModel->getAll(); // También las necesitamos para editar
+        $selecciones = $this->seleccionModel->getAll();
         $this->view->showEditForm($jugador, $selecciones);
     }
     
@@ -101,7 +101,7 @@ class JugadorController extends BaseController {
         $jugador = $this->model->getById($id_jugador);
 
         if (!$jugador) {
-            echo 'Error: materia no encontrada';
+            echo 'Error jugador no encontrado';
             return;
         }
 
