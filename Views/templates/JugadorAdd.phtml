@@ -1,4 +1,6 @@
-<form method="POST" action="add">
+<link rel="stylesheet" href="<?= BASE_URL ?>style/jugador.css">
+
+<form method="POST" action="add" class="formAdd">
     <label for="nombre">Nombre del jugador:</label>
     <input name="nombre">
     <label for="posicion">Posición:</label>
@@ -24,5 +26,5 @@
     <label for="foto_jugador">URL de la foto:</label>
     <input name="foto_jugador">
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btnAdd">Guardar</button>
 </form>

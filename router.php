@@ -10,7 +10,7 @@ require_once 'Controllers/LoginController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-$action = 'listado';
+$action = 'jugadores';
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -19,8 +19,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-
-    case 'listado':
+    case 'jugadores':
         $controller = new JugadorController();
         $controller->getAll();
         break;
@@ -56,12 +55,8 @@ switch ($params[0]) {
             $controller->logout();
             break;
     case 'delete':
-        if (!empty($params[1])) {
-            $controller = new JugadorController();
-            $controller->delete($params[1]);
-        } else {
-            echo "Falta ID";
-        }
+        $controller = new JugadorController();
+        $controller->delete($params[1]);
         break;
     case 'confirmDelete':
         $controller = new JugadorController();
@@ -78,6 +73,10 @@ switch ($params[0]) {
     case 'add':
         $controller = new JugadorController();
         $controller->add();
+        break;
+    case 'formAdd':
+        $controller = new JugadorController();
+        $controller->showAddForm();
         break;
     case 'addSeleccion':
         $controller = new SeleccionController();

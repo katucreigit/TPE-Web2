@@ -1,15 +1,30 @@
-<form method="POST" action="<?= BASE_URL ?>edit">
+<link rel="stylesheet" href="<?= BASE_URL ?>style/jugador.css">
+
+<form method="POST" action="<?= BASE_URL ?>edit" class="formEdit">
 
     <input type="hidden" name="id_jugador" value="<?= $jugador->id_jugador ?>">
 
+    <label for="nombre">Nombre completo:</label>
     <input name="nombre" value="<?= $jugador->nombre ?>">
+
+<label for="posicion">Posición en la cancha:</label>
     <input name="posicion" value="<?= $jugador->posicion ?>">
-    <input name="numero" value="<?= $jugador->numero ?>">
-    <input name="peso" value="<?= $jugador->peso ?>">
-    <input name="altura" value="<?= $jugador->altura ?>">
+
+    <label for="numero">Número de camiseta:</label>
+    <input name="numero" value="<?= $jugador->numero ?>" min=0>
+
+    <label for="peso">Peso:</label>
+    <input name="peso" value="<?= $jugador->peso ?>" min=0>
+
+    <label for="altura" >Altura:</label>
+    <input name="altura" value="<?= $jugador->altura ?>" min=0>
+
+    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
     <input name="fecha_nacimiento" value="<?= $jugador->fecha_nacimiento ?>">
 
+    <label for="id_seleccion">Selección:</label>
     <select name="id_seleccion" required>
+        <option value="">Seleccione una Selección</option>
         <?php foreach ($selecciones as $seleccion): ?>
             <option value="<?= $seleccion->id_seleccion ?>" 
                 <?= ($seleccion->id_seleccion == $jugador->id_seleccion) ? 'selected' : '' ?>>
@@ -18,7 +33,8 @@
         <?php endforeach; ?>
     </select>
 
+    <label for="foto_jugador">URL de la foto:</label>
     <input name="foto_jugador" value="<?= $jugador->foto_jugador ?>">
 
-    <button type="submit">Editar</button>
+    <button type="submit" class="btnEdit">Editar</button>
 </form>

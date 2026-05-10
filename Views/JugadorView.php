@@ -15,6 +15,9 @@ class JugadorView {
     public function renderConfirmDelete($jugador) {
         require __DIR__ . '/templates/confirmDelete.phtml';
     }
+    public function showAddForm($selecciones){
+        require __DIR__ . '/templates/JugadorAdd.phtml';
+    }
 }
 
 

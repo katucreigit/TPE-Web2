@@ -71,6 +71,11 @@ class JugadorController extends BaseController {
         header("Location: " . BASE_URL );
         exit;
     }
+    public function showAddForm() {
+        $this->checkLoggedIn();
+        $selecciones = $this->seleccionModel->getAll();
+        $this->view->showAddForm($selecciones);
+    }
 
     public function edit() {
         $this->checkLoggedIn();

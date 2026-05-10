@@ -28,7 +28,7 @@ class LoginController {
                 session_start();
                 $_SESSION['usuario'] = $userName;
                 $_SESSION['LAST_ACTIVITY'] = time();
-                header('Location: ' . BASE_URL . 'listado');
+                header('Location: ' . BASE_URL . 'jugadores');
                 die();
             } else {
                 $this->view->showLogin('Usuario o Password incorrectos');

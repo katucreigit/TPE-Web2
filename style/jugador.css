@@ -1,0 +1,127 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(77, 77, 252, 0.384);
+    height: 100%;
+}
+table{
+    margin: 25px 0;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    border:  3px solid rgb(77, 77, 252);
+    border-spacing: 0;
+    color: #000;
+}
+table thead tr {
+    background-color:rgb(77, 77, 252) ;
+    color: #ffffff;
+    padding: 2rem;
+}
+table th, table td {
+    padding: 18px;
+    border: 2px solid #dddddd;
+}
+
+table th:first-child, 
+table td:first-child{
+    border-left: none;
+}
+table th:last-child, 
+table td:last-child {
+    border-right: none;
+}
+table thead tr:first-child th {
+    border-top: none;
+}
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table tbody tr, table tfoot tr {
+    border-bottom: 2px solid #dddddd;
+    background-color: #fff;
+}
+
+table td a.link_jug{
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+table td a.link_jug:hover{
+    background-color: rgba(77, 77, 252, 0.856);
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.btnEdit, .btnDelete, .btnAdd{
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.btnAdd{
+    background-color: rgb(86, 194, 86);
+}
+.btnDelete{
+    background-color: rgb(161, 18, 18);
+}
+.btnEdit{
+    background-color: rgb(77, 77, 252);
+}
+.btnAdd:hover{
+    background-color: rgba(86, 194, 86, 0.705);
+}
+.btnDelete:hover{
+    background-color: rgba(161, 18, 18, 0.753);
+}
+.btnEdit:hover{
+    background-color: rgba(77, 77, 252, 0.753);
+}
+
+.formEdit, .formAdd{
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid rgb(77, 77, 252);
+    max-width: 400px;
+    margin: 20px auto;
+}
+.formEdit input, .formEdit select, .formAdd input, .formAdd select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.formEdit label, .formAdd label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+.formEdit input:focus, .formAdd input:focus{
+    outline: none;
+    border-color: rgb(77, 77, 252);
+}
+.formEdit button, .formAdd button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
