@@ -19,19 +19,14 @@ class SeleccionController extends BaseController {
     }
     
 
-    public function getById($id_seleccion) {
-        $jugadores = $this->model->getById($id_seleccion);
 
-        if (empty($jugadores)) {
-            $this->errorView->render("No se ha encontrado esta seleccion.");n;
-        return;
-        }
-
+    public function getJugadoresPorSeleccion($id_seleccion) {
+        $jugadores = $this->model->getJugadoresPorSeleccion($id_seleccion);
         $this->view->showJugadoresdeSeleccion($jugadores);
     }
     
-    public function addSeleccion() {
 
+    public function addSeleccion() {
         $this->checkLoggedIn();
 
         if(!isset($_POST['pais']) || empty($_POST['pais']) || !isset($_POST['dt_seleccion']) || empty($_POST['dt_seleccion']) || !isset($_POST['cant_mundiales_ganados']) || $_POST['cant_mundiales_ganados'] === '' || !isset($_POST['participaciones_totales']) || $_POST['participaciones_totales'] === '' || !isset($_POST['foto_seleccion']) || empty($_POST['foto_seleccion'])){
@@ -91,15 +86,11 @@ class SeleccionController extends BaseController {
         $this->checkLoggedIn();
 
         $seleccion = $this->model->getById($id_seleccion);
-
-        
         $this->view->confirmDeleteSeleccion($seleccion);
     }
 
     public function deleteSeleccion($id_seleccion){
-        
         $this->checkLoggedIn();
-
         $this->model->deleteSeleccion($id_seleccion);
 
         header("Location: " . BASE_URL );

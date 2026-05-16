@@ -37,7 +37,7 @@ switch ($params[0]) {
     case 'jugadoresPorSeleccion':
         $controller = new SeleccionController();
         if (!empty($params[1])) {
-            $controller->getById($params[1]);
+            $controller->getJugadoresPorSeleccion($params[1]);
         } else {
             $this->errorView->render("No se ha encontrado una seleccion .");
             return;
