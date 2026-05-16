@@ -15,6 +15,9 @@
                     <th>DT</th>
                     <th>Cantidad de Mundiales Ganados</th>
                     <th>Participaciones Totales</th>
+                    <?php if ($isAdmin): ?>
+                    <th>Acciones</th>
+                <?php endif; ?>
                 </tr>
             </thead>
             <tbody>
@@ -33,8 +36,10 @@
                             <td><?= $seleccion->participaciones_totales ?></td>
                             <td><a href="<?= BASE_URL ?>jugadoresPorSeleccion/<?= $seleccion->id_seleccion ?>">
                             Ver jugadores</td>
+                            <?php if ($isAdmin): ?>
                             <td><a href="<?= BASE_URL ?>formEditSeleccion/<?= $seleccion->id_seleccion ?>">Editar</a></td>
                             <td><a href="<?= BASE_URL ?>confirmDeleteSeleccion/<?= $seleccion->id_seleccion ?>">Eliminar</a></td>
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
 
