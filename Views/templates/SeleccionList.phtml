@@ -33,12 +33,25 @@
                             <td><?= $seleccion->participaciones_totales ?></td>
                             <td><a href="<?= BASE_URL ?>jugadoresPorSeleccion/<?= $seleccion->id_seleccion ?>">
                             Ver jugadores</td>
+                            <td><a href="<?= BASE_URL ?>formEditSeleccion/<?= $seleccion->id_seleccion ?>">Editar</a></td>
+                            <td><a href="<?= BASE_URL ?>confirmDeleteSeleccion/<?= $seleccion->id_seleccion ?>">Eliminar</a></td>
                         </tr>
                     <?php endforeach; ?>
 
                 <?php endif; ?>
 
             </tbody>
+            <?php if ($isAdmin): ?>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <a href="<?= BASE_URL ?>formAddSeleccion" class="btnAddSeleccion">
+                            + Agregar Nueva Seleccion
+                        </a>
+                    </td>
+                </tr>
+            </tfoot>
+        <?php endif; ?>
         </table>
 
         </body>

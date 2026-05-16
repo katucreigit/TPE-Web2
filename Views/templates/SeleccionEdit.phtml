@@ -1,0 +1,22 @@
+
+<form method="POST" action="<?= BASE_URL ?>editSeleccion" class="formEdit">
+
+    <input type="hidden" name="id_seleccion" value="<?= $seleccion->id_seleccion ?>">
+
+    <label for="pais">Nombre de la Seleccion:</label>
+    <input name="pais" value="<?= $seleccion->pais ?>">
+
+<label for="dt_seleccion">Director Tecnico:</label>
+    <input name="dt_seleccion" value="<?= $seleccion->dt_seleccion ?>">
+
+    <label for="cant_mundiales_ganados">Cantidad de mundiales ganados:</label>
+    <input name="cant_mundiales_ganados" value="<?= $seleccion->cant_mundiales_ganados ?>" min=0>
+
+    <label for="participaciones_totales">Participaciones Totales:</label>
+    <input name="participaciones_totales" value="<?= $seleccion->participaciones_totales ?>" min=0>
+
+    <label for="foto_seleccion">URL de la foto:</label>
+    <input name="foto_seleccion" value="<?= $seleccion->foto_seleccion ?>">
+
+    <button type="submit" class="btnEdit">Editar</button>
+</form>

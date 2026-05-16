@@ -1,0 +1,17 @@
+<main>
+    <section>
+        <h1>Confirmar eliminación</h1>
+        <p>¿Estás seguro de que querés eliminar a la seleccion: <?= htmlspecialchars($seleccion->pais)?> ?</p>
+        
+        
+        <p><strong>Aviso:</strong> Esta acción no se puede deshacer.</p>
+
+        <div>
+            <a href="<?= BASE_URL ?>/selecciones">Cancelar</a>
+
+            <a href="<?= BASE_URL ?>deleteSeleccion/<?= $seleccion->id_seleccion ?>">
+                Sí, eliminar definitivamente
+            </a>
+        </div>
+    </section>
+</main>

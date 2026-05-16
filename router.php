@@ -39,7 +39,8 @@ switch ($params[0]) {
         if (!empty($params[1])) {
             $controller->getById($params[1]);
         } else {
-            echo "Falta ID de selección";
+            $this->errorView->render("No se ha encontrado una seleccion .");
+            return;
         }
         break;
     case 'login':
@@ -78,9 +79,29 @@ switch ($params[0]) {
         $controller = new JugadorController();
         $controller->showAddForm();
         break;
+    case 'formAddSeleccion':
+        $controller = new SeleccionController();
+        $controller->showAddForm();
+        break;
     case 'addSeleccion':
         $controller = new SeleccionController();
         $controller->addSeleccion();
+        break;
+    case 'formEditSeleccion':
+        $controller = new SeleccionController();
+        $controller->showEditForm($params[1]);
+        break;
+    case 'editSeleccion':
+        $controller = new SeleccionController();
+        $controller->editSeleccion();
+        break;
+    case 'confirmDeleteSeleccion':
+        $controller = new SeleccionController();
+        $controller->confirmDeleteSeleccion($params[1]);
+        break;
+    case 'deleteSeleccion':
+        $controller = new SeleccionController();
+        $controller->deleteSeleccion($params[1]);
         break;
     default:
         echo '404 error';
