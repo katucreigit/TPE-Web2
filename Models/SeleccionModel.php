@@ -17,10 +17,10 @@
         
 
         public function getById($id_seleccion) {
-        $query = $this->db->prepare("SELECT * FROM seleccion WHERE id_seleccion= ?");
+        $query = $this->db->prepare("SELECT * FROM jugador WHERE id_seleccion= ?");
         $query->execute([$id_seleccion]);
 
-        return $query->fetch(PDO::FETCH_OBJ);
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
         public function addSeleccion($pais, $dt_seleccion, $cant_mundiales_ganados, $participaciones_totales, $foto_seleccion){
