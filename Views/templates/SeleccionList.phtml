@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-        <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <title>Lista de Selecciones</title>
-        </head>
-        <body>
+<?php require 'layout/header.phtml'; ?>
 
-        <h1>Lista de Selecciones</h1>
+        <h1 class="mb-4 text-center">Lista de Selecciones</h1>
 
-        <table>
+        <div  class="container mt-4">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>País</th>
@@ -16,7 +11,7 @@
                     <th>Cantidad de Mundiales Ganados</th>
                     <th>Participaciones Totales</th>
                     <?php if ($isAdmin): ?>
-                    <th>Acciones</th>
+                    <th colspan= "6">Acciones</th>
                 <?php endif; ?>
                 </tr>
             </thead>
@@ -34,11 +29,11 @@
                             <td><?= $seleccion->dt_seleccion ?></td>
                             <td><?= $seleccion->cant_mundiales_ganados ?></td>
                             <td><?= $seleccion->participaciones_totales ?></td>
-                            <td><a href="<?= BASE_URL ?>jugadoresPorSeleccion/<?= $seleccion->id_seleccion ?>">
+                            <td><a href="<?= BASE_URL ?>jugadoresPorSeleccion/<?= $seleccion->id_seleccion ?>" class="btn btn-primary btn-sm">
                             Ver jugadores</td>
                             <?php if ($isAdmin): ?>
-                            <td><a href="<?= BASE_URL ?>formEditSeleccion/<?= $seleccion->id_seleccion ?>">Editar</a></td>
-                            <td><a href="<?= BASE_URL ?>confirmDeleteSeleccion/<?= $seleccion->id_seleccion ?>">Eliminar</a></td>
+                            <td><a href="<?= BASE_URL ?>formEditSeleccion/<?= $seleccion->id_seleccion ?>" class="btn btn-warning btn-sm">Editar</a></td>
+                            <td><a href="<?= BASE_URL ?>confirmDeleteSeleccion/<?= $seleccion->id_seleccion ?>" class="btn btn-danger btn-sm">Eliminar</a></td>
                             <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
@@ -49,8 +44,8 @@
             <?php if ($isAdmin): ?>
             <tfoot>
                 <tr>
-                    <td colspan="3">
-                        <a href="<?= BASE_URL ?>formAddSeleccion" class="btnAddSeleccion">
+                    <td colspan="8" class="text-center">
+                        <a href="<?= BASE_URL ?>formAddSeleccion" class="btn btn-success">
                             + Agregar Nueva Seleccion
                         </a>
                     </td>
@@ -58,6 +53,7 @@
             </tfoot>
         <?php endif; ?>
         </table>
-
+        </div>
         </body>
+        <?php require 'layout/footer.phtml'; ?>
         </html>

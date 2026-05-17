@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-        <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-            <title>Lista de Jugadores</title>
-        </head>
-        <body>
+<?php require 'layout/header.phtml'; ?>
 
-        <h1>Lista de Jugadores</h1>
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Lista de Jugadores</h1>
 
-        <table>
-            <thead>
+        <table class="table table-striped table-hover table-bordered align-middle">
+            <thead class="table-dark">
                 <tr>
                     <th>Nombre</th>
                     <th>Posición</th>
@@ -24,7 +19,7 @@
 
                 <?php if (empty($jugadores)): ?>
                     <tr>
-                        <td colspan="8">No hay jugadores cargados</td>
+                        <td colspan="8" class="text-center">No hay jugadores cargados</td>
                     </tr>
                 <?php else: ?>
 
@@ -37,7 +32,8 @@
                             <td><?= $jugador->altura ?></td>
                             <td><?= $jugador->fecha_nacimiento ?></td>
                             <td>
-                                <img src="<?= $jugador->foto_jugador ?>" width="50">
+                                <img src="<?= $jugador->foto_jugador ?>" width="50"
+                                class="img-thumbnail">
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -46,6 +42,7 @@
 
             </tbody>
         </table>
-
+    </div>
         </body>
+        <?php require 'layout/footer.phtml'; ?>
         </html>

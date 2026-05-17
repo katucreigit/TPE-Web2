@@ -60,3 +60,13 @@ body{
     background-color: transparent;
     border: 3px solid #fff;
 }
+
+.app-footer {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}

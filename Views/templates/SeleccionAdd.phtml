@@ -1,19 +1,33 @@
-<form method="POST" action="addSeleccion" class= "formAddSeleccion">
-    <label for="pais">Nombre de la Seleccion:</label>
-    <input id="pais" name="pais" required>
+<?php require 'layout/header.phtml'; ?>
+<form method="POST" action="addSeleccion" class="formAddSeleccion container mt-5">
 
-    <label for="dt_seleccion">Director Tecnico:</label>
-    <input id="dt_seleccion" name="dt_seleccion" required>
+    <h2 class="text-center mb-4">Agregar Nueva Selección</h2>
 
-    <label for="cant_mundiales_ganados">Cantidad de mundiales ganados:</label>
-    <input id="cant_mundiales_ganados" name="cant_mundiales_ganados" type="number" required>
+    <div class="mb-3">
+        <label for="pais" class="form-label">Nombre de la Seleccion:</label>
+        <input id="pais" name="pais"  class="form-control" required>
+    </div>
 
-    <label for="participaciones_totales">Participaciones Totales:</label>
-    <input id= "participaciones_totales" name="participaciones_totales" type="number" required>
+    <div class="mb-3">
+        <label for="dt_seleccion" class="form-label">Director Tecnico:</label>
+        <input id="dt_seleccion" name="dt_seleccion" class="form-control" required>
+    </div>
 
+    <div class="mb-3">
+        <label for="cant_mundiales_ganados" class="form-label">Cantidad de mundiales ganados:</label>
+        <input id="cant_mundiales_ganados" name="cant_mundiales_ganados" type="number" class="form-control" required>
+    </div>
 
-    <label for="foto_seleccion">URL de la foto:</label>
-    <input id="foto_seleccion" name="foto_seleccion" type= "url" required>
+    <div class="mb-3">
+        <label for="participaciones_totales"  class="form-label">Participaciones Totales:</label>
+        <input id= "participaciones_totales" name="participaciones_totales" type="number" class="form-control" required>
+    </div>
 
-    <button type="submit">Guardar</button>
+    <div class="mb-4">
+        <label for="foto_seleccion" class="form-label">URL de la foto:</label>
+        <input id="foto_seleccion" name="foto_seleccion" type= "url" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Guardar</button>
 </form>
+<?php require 'layout/footer.phtml'; ?>

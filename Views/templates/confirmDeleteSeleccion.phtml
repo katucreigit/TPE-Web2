@@ -1,17 +1,21 @@
-<main>
-    <section>
-        <h1>Confirmar eliminación</h1>
-        <p>¿Estás seguro de que querés eliminar a la seleccion: <?= htmlspecialchars($seleccion->pais)?> ?</p>
+<?php require 'layout/header.phtml'; ?>
+<main class="container mt-5">
+    <section class="card shadow p-4 mx-auto" style="max-width: 600px;">
+        <h1 class="text-center mb-4 text-danger">Confirmar eliminación</h1>
+        <p class="fs-5">¿Estás seguro de que querés eliminar a la seleccion: <?= htmlspecialchars($seleccion->pais)?> ?</p>
         
         
-        <p><strong>Aviso:</strong> Esta acción no se puede deshacer.</p>
+        <div class="alert alert-warning mt-4">
+            <strong>Aviso:</strong> Esta acción no se puede deshacer.
+        </div>
 
-        <div>
-            <a href="<?= BASE_URL ?>/selecciones">Cancelar</a>
+        <div class="d-flex justify-content-between mt-4">
+            <a href="<?= BASE_URL ?>/selecciones" class="btn btn-secondary">Cancelar</a>
 
-            <a href="<?= BASE_URL ?>deleteSeleccion/<?= $seleccion->id_seleccion ?>">
+            <a href="<?= BASE_URL ?>deleteSeleccion/<?= $seleccion->id_seleccion ?>" class="btn btn-danger">
                 Sí, eliminar definitivamente
             </a>
         </div>
     </section>
 </main>
+<?php require 'layout/footer.phtml'; ?>

@@ -1,22 +1,84 @@
+<?php require 'layout/header.phtml'; ?>
+<form method="POST" action="<?= BASE_URL ?>editSeleccion" class="formEdit container mt-5">
 
-<form method="POST" action="<?= BASE_URL ?>editSeleccion" class="formEdit">
+    <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
 
-    <input type="hidden" name="id_seleccion" value="<?= $seleccion->id_seleccion ?>">
+        <h2 class="text-center mb-4">Editar Selección</h2>
 
-    <label for="pais">Nombre de la Seleccion:</label>
-    <input name="pais" value="<?= $seleccion->pais ?>">
+        <input type="hidden" name="id_seleccion" value="<?= $seleccion->id_seleccion ?>">
 
-<label for="dt_seleccion">Director Tecnico:</label>
-    <input name="dt_seleccion" value="<?= $seleccion->dt_seleccion ?>">
+        <div class="mb-3">
+            <label for="pais" class="form-label">
+                Nombre de la Selección:
+            </label>
 
-    <label for="cant_mundiales_ganados">Cantidad de mundiales ganados:</label>
-    <input name="cant_mundiales_ganados" value="<?= $seleccion->cant_mundiales_ganados ?>" min=0>
+            <input 
+                type="text"
+                name="pais"
+                class="form-control"
+                value="<?= $seleccion->pais ?>"
+            >
+        </div>
 
-    <label for="participaciones_totales">Participaciones Totales:</label>
-    <input name="participaciones_totales" value="<?= $seleccion->participaciones_totales ?>" min=0>
+        <div class="mb-3">
+            <label for="dt_seleccion" class="form-label">
+                Director Técnico:
+            </label>
 
-    <label for="foto_seleccion">URL de la foto:</label>
-    <input name="foto_seleccion" value="<?= $seleccion->foto_seleccion ?>">
+            <input 
+                type="text"
+                name="dt_seleccion"
+                class="form-control"
+                value="<?= $seleccion->dt_seleccion ?>"
+            >
+        </div>
 
-    <button type="submit" class="btnEdit">Editar</button>
+        <div class="mb-3">
+            <label for="cant_mundiales_ganados" class="form-label">
+                Cantidad de mundiales ganados:
+            </label>
+
+            <input 
+                type="number"
+                name="cant_mundiales_ganados"
+                class="form-control"
+                value="<?= $seleccion->cant_mundiales_ganados ?>"
+                min="0"
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="participaciones_totales" class="form-label">
+                Participaciones Totales:
+            </label>
+
+            <input 
+                type="number"
+                name="participaciones_totales"
+                class="form-control"
+                value="<?= $seleccion->participaciones_totales ?>"
+                min="0"
+            >
+        </div>
+
+        <div class="mb-4">
+            <label for="foto_seleccion" class="form-label">
+                URL de la foto:
+            </label>
+
+            <input 
+                type="text"
+                name="foto_seleccion"
+                class="form-control"
+                value="<?= $seleccion->foto_seleccion ?>"
+            >
+        </div>
+
+
+        <button type="submit" class="btn btn-primary w-100">
+            Editar
+        </button>
+
+    </div>
 </form>
+<?php require 'layout/footer.phtml'; ?>
