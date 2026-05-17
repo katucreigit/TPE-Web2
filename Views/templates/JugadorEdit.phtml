@@ -1,40 +1,58 @@
-<link rel="stylesheet" href="<?= BASE_URL ?>style/jugador.css">
+<?php require 'layout/header.phtml'; ?>
 
-<form method="POST" action="<?= BASE_URL ?>edit" class="formEdit">
+<h2 class="text-center mb-4">Editar jugador</h2>
+<form method="POST" action="<?= BASE_URL ?>edit" class="formEdit container mt-5">
+    <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
 
-    <input type="hidden" name="id_jugador" value="<?= $jugador->id_jugador ?>">
+        <input type="hidden" name="id_jugador" value="<?= $jugador->id_jugador ?>">
 
-    <label for="nombre">Nombre completo:</label>
-    <input name="nombre" value="<?= $jugador->nombre ?>">
-
-<label for="posicion">Posición en la cancha:</label>
-    <input name="posicion" value="<?= $jugador->posicion ?>">
-
-    <label for="numero">Número de camiseta:</label>
-    <input name="numero" value="<?= $jugador->numero ?>" min=0>
-
-    <label for="peso">Peso:</label>
-    <input name="peso" value="<?= $jugador->peso ?>" min=0>
-
-    <label for="altura" >Altura:</label>
-    <input name="altura" value="<?= $jugador->altura ?>" min=0>
-
-    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-    <input name="fecha_nacimiento" value="<?= $jugador->fecha_nacimiento ?>">
-
-    <label for="id_seleccion">Selección:</label>
-    <select name="id_seleccion" required>
-        <option value="">Seleccione una Selección</option>
-        <?php foreach ($selecciones as $seleccion): ?>
-            <option value="<?= $seleccion->id_seleccion ?>" 
-                <?= ($seleccion->id_seleccion == $jugador->id_seleccion) ? 'selected' : '' ?>>
-                <?= $seleccion->pais ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-
-    <label for="foto_jugador">URL de la foto:</label>
-    <input name="foto_jugador" value="<?= $jugador->foto_jugador ?>">
-
-    <button type="submit" class="btnEdit">Editar</button>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo:</label>
+            <input name="nombre" value="<?= $jugador->nombre ?>" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="posicion" class="form-label">Posición en la cancha:</label>
+            <input name="posicion" value="<?= $jugador->posicion ?>" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="numero" class="form-label">Número de camiseta:</label>
+            <input name="numero" value="<?= $jugador->numero ?>" min=0 class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="peso" class="form-label">Peso:</label>
+            <input name="peso" value="<?= $jugador->peso ?>" min=0 class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="altura" class="form-label">Altura:</label>
+            <input name="altura" value="<?= $jugador->altura ?>" min=0 class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
+            <input name="fecha_nacimiento" value="<?= $jugador->fecha_nacimiento ?>" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="id_seleccion" class="form-label">Selección:</label>
+            <select name="id_seleccion" required class="form-select">
+                <option value="">Seleccione una selección</option>
+                <?php foreach ($selecciones as $seleccion): ?>
+                    <option value="<?= $seleccion->id_seleccion ?>" 
+                        <?= ($seleccion->id_seleccion == $jugador->id_seleccion) ? 'selected' : '' ?> >
+                        <?= $seleccion->pais ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="foto_jugador" class="form-label">URL de la foto:</label>
+            <input name="foto_jugador" value="<?= $jugador->foto_jugador ?>" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Editar</button>
+    </div>
 </form>
+<a href="<?= BASE_URL ?>jugadores" class="btn btn-primary">
+    ← Volver
+    </a>
+</div>
+</body>
+    <?php require 'layout/footer.phtml'; ?>
+    </html>

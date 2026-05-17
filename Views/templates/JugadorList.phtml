@@ -1,71 +1,64 @@
 <?php require 'Views/templates/layout/header.phtml'; ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/home.css">
-    <link rel="stylesheet" href="style/jugador.css">
-    <title>Jugadores de la selección</title>
-</head>
+
+
 <body>
-    <h1>Listado de jugadores</h1>
+    <h1 class="mb-4 text-center">Lista de jugadores</h1>
 
-    <?php if (!isset($_SESSION['usuario'])): ?>
-        <a href="login" class="button">Iniciar sesión</a>
-    <?php else: ?>
-        <a href="logout" class="button">Cerrar sesión</a>
-    <?php endif; ?>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Selección</th>
-                <th>Nombre</th>
-                <?php if ($isAdmin): ?>
-                    <th>Acciones</th>
-                <?php endif; ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (empty($jugadores)): ?>
+    <div  class="container mt-4">
+        <table class="table table-striped table-hover ">
+            <thead>
                 <tr>
-                    <td colspan="3">No hay jugadores cargados</td>
+                    <th class="text-center">Selección</th>
+                    <th class="text-center">Nombre</th>
+                    <th></th>
+                    <?php if ($isAdmin): ?>
+                        <th class="text-center">Acciones</th>
+                    <?php endif; ?>
                 </tr>
-            <?php else: ?>
+            </thead>
+            <tbody>
+                <?php if (empty($jugadores)): ?>
+                    <?php if ($isAdmin): ?>
+                        <tr>
+                            <td colspan="4">No hay jugadores cargados</td>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="3">No hay jugadores cargados</td>
+                        </tr>
+                    <?php endif; ?>
+                <?php else: ?>
 
-                <?php foreach ($jugadores as $jugador): ?>
+                    <?php foreach ($jugadores as $jugador): ?>
+                        <tr>
+                            <td class="text-center"><?= $jugador->Seleccion ?></td>
+                            <td class="text-center"><?= $jugador->nombre ?></td>
+                            <td class="text-center"><a href="<?= BASE_URL ?>detalle/<?= $jugador->id_jugador ?>" class="btn btn-primary btn-sm">Ver detalle</td>
+                            <?php if ($isAdmin): ?>
+                                <td class="text-center">
+                                    <a href="<?= BASE_URL ?>formEdit/<?= $jugador->id_jugador ?>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="<?= BASE_URL ?>confirmDelete/<?= $jugador->id_jugador ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                                </td>
+                            <?php endif; ?>
+                        </tr>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+
+            </tbody>
+            <?php if ($isAdmin): ?>
+                <tfoot>
                     <tr>
-                        <td><?= $jugador->Seleccion ?></td>
-                        <td>
-                            <a class="link_jug" href="<?= BASE_URL ?>detalle/<?= $jugador->id_jugador ?>" >
-                                <?= $jugador->nombre ?>
+                        <td colspan="4" class="text-center">
+                            <a href="<?= BASE_URL ?>formAdd" class="btn btn-success">
+                                + Agregar Nuevo Jugador
                             </a>
                         </td>
-                        <?php if ($isAdmin): ?>
-                            <td>
-                                <a href="<?= BASE_URL ?>formEdit/<?= $jugador->id_jugador ?>" class="btnEdit">Editar</a>
-                                <a href="<?= BASE_URL ?>confirmDeleteSeleccion/<?= $jugador->id_jugador ?>" class="btnDelete">Eliminar</a>
-                            </td>
-                        <?php endif; ?>
                     </tr>
-                <?php endforeach; ?>
-
+                </tfoot>
             <?php endif; ?>
-
-        </tbody>
-        <?php if ($isAdmin): ?>
-            <tfoot>
-                <tr>
-                    <td colspan="3">
-                        <a href="<?= BASE_URL ?>formAdd" class="btnAdd">
-                            + Agregar Nuevo Jugador
-                        </a>
-                    </td>
-                </tr>
-            </tfoot>
-        <?php endif; ?>
-    </table>
-    
+        </table>
+    </div>
 </body>
+<?php require 'layout/footer.phtml'; ?>
 </html>
