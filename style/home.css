@@ -1,12 +1,10 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     background-color: rgba(77, 77, 252, 0.384);
     height: 100%;
+    padding: 0;
+    width: 100%;
 }
 .button{
     text-decoration: none;
@@ -18,4 +16,47 @@ body{
     border-radius: 6px;
     font-size: 16px;
     font-weight: 600;
+}
+
+
+.pantalla-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.izq, .der {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: relative;
+    display: inline-block; 
+}
+
+.izq img, .der img {
+    width: 100%;
+    height: auto;
+    filter: blur(3px);
+    display: block;
+}
+
+.pantalla-inicial button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.pantalla-inicial button:hover {
+    background-color: transparent;
+    border: 3px solid #fff;
 }
