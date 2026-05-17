@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 require_once 'Controllers/JugadorController.php';
 require_once 'Controllers/SeleccionController.php';
 require_once 'Controllers/LoginController.php';
+require_once 'Controllers/HomeController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -19,6 +20,10 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
+    case 'home':
+        $controller = new HomeController();
+        $controller->index();
+        break;
     case 'jugadores':
         $controller = new JugadorController();
         $controller->getAll();
