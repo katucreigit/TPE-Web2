@@ -1,10 +1,9 @@
 <?php
-
-    class JugadorModel {
-        private $db;
+require_once 'Model.php';
+    class JugadorModel extends Model{
 
         public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=bd_album_mundial;charset=utf8', 'root', '');
+        parent::__construct();
         }
 
 
