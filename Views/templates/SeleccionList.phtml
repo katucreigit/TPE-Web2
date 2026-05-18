@@ -10,6 +10,7 @@
                     <th>DT</th>
                     <th>Cantidad de Mundiales Ganados</th>
                     <th>Participaciones Totales</th>
+                    <th>Foto</th>
                     <th colspan= "6">Acciones</th>
                 
                 </tr>
@@ -28,6 +29,9 @@
                             <td><?= $seleccion->dt_seleccion ?></td>
                             <td><?= $seleccion->cant_mundiales_ganados ?></td>
                             <td><?= $seleccion->participaciones_totales ?></td>
+                            <td>
+                                <img src="<?= $seleccion->foto_seleccion ?>" alt="Foto de <?= $seleccion->pais ?>" width="100">
+                            </td>
                             <td><a href="<?= BASE_URL ?>jugadoresPorSeleccion/<?= $seleccion->id_seleccion ?>" class="btn btn-primary btn-sm">
                             Ver jugadores</td>
                             <?php if ($isAdmin): ?>
