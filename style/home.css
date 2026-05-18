@@ -1,62 +1,10 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: rgba(77, 77, 252, 0.384);
+    background-color: rgb(100, 100, 104);
     height: 100%;
     padding: 0;
     width: 100%;
-}
-.button{
-    text-decoration: none;
-    text-align: center;
-    background-color: rgb(77, 77, 252);
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-
-.pantalla-inicial {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.izq, .der {
-    width: 45%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-}
-
-.izq img, .der img {
-    width: 100%;
-    height: auto;
-    filter: blur(3px);
-    display: block;
-}
-
-.pantalla-inicial button{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.pantalla-inicial button:hover {
-    background-color: transparent;
-    border: 3px solid #fff;
 }
 
 .app-footer {

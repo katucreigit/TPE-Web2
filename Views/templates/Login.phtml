@@ -1,21 +1,23 @@
 <?php require 'Views/templates/layout/header.phtml'; ?>
-<body class="container py-4">
+<body>
     <?php if (!empty($error)): ?>
         <div class="alert alert-danger" role="alert">
             <?= $error ?>
         </div>
     <?php endif; ?>
-    <form action="verificar" method="POST" class="mx-auto" style="max-width: 400px;">
+    <form action="verificar" method="POST" class="mx-auto bg-white p-4 rounded-3 shadow-sm border mt-5" style="max-width: 400px;">
         <div class="mb-3">
-            <label for="usuario" class="form-label">Usuario:</label>
+            <label for="usuario" class="form-label fw-semibold text-secondary">Usuario:</label>
             <input type="text" name="usuario" class="form-control" placeholder="Ingrese su nombre de usuario" required>
         </div>
-        <div class="mb-3">
-            <label for="password" "form-label">Password:</label>
+        <div class="mb-4">
+            <label for="password" class="form-label fw-semibold text-secondary">Password:</label>
             <input type="password" name ="password" class="form-control" placeholder="Ingrese su contraseña" required>
         </div>
         
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+        Ingresar
+        </button>
     </form>
 </body>
 <?php require 'layout/footer.phtml'; ?>

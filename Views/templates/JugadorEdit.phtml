@@ -1,7 +1,8 @@
 <?php require 'layout/header.phtml'; ?>
 
-<h2 class="text-center mb-4">Editar jugador</h2>
-<form method="POST" action="<?= BASE_URL ?>edit" class="formEdit container mt-5">
+<div class="container mt-4">
+<h2 class="text-center mb-4 p-3">Editar jugador</h2>
+<form method="POST" action="<?= BASE_URL ?>edit" class="formEdit container mt-2">
     <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
 
         <input type="hidden" name="id_jugador" value="<?= $jugador->id_jugador ?>">
@@ -49,10 +50,11 @@
         <button type="submit" class="btn btn-primary w-100">Editar</button>
     </div>
 </form>
-<a href="<?= BASE_URL ?>jugadores" class="btn btn-primary">
-    ← Volver
+<a href="<?= BASE_URL ?>jugadores" class="btn btn-primary ">
+    <i class="bi bi-arrow-bar-left"></i>    
+    Volver
     </a>
 </div>
 </body>
     <?php require 'layout/footer.phtml'; ?>
-    </html>
+</html>
